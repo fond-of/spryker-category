@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
-<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd" namespace="Orm\Zed\Product\Persistence" package="src.Orm.Zed.Product.Persistence">
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          name="zed"
+          xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd"
+          namespace="Orm\Zed\Category\Persistence"
+          package="src.Orm.Zed.Category.Persistence">
 
     <table name="spy_category_store" idMethod="native" allowPkInsert="true" identifierQuoting="true">
         <column name="id_category_store" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
