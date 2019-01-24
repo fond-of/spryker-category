@@ -5,21 +5,21 @@
           namespace="Orm\Zed\Category\Persistence"
           package="src.Orm.Zed.Category.Persistence">
 
-    <table name="spy_category_store" idMethod="native" allowPkInsert="true" identifierQuoting="true">
+    <table name="fos_category_store" idMethod="native" allowPkInsert="true" identifierQuoting="true">
         <column name="id_category_store" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
 
         <column name="fk_category" required="true" type="INTEGER"/>
         <column name="fk_store" required="true" type="INTEGER"/>
 
-        <unique name="spy_category_store-fk_category-fk_store">
+        <unique name="fos_category_store-fk_category-fk_store">
             <unique-column name="fk_category"/>
             <unique-column name="fk_store"/>
         </unique>
 
-        <foreign-key name="spy_category_store-fk_category" foreignTable="spy_category">
+        <foreign-key name="fos_category_store-fk_category" foreignTable="spy_category">
             <reference local="fk_category" foreign="id_category"/>
         </foreign-key>
-        <foreign-key name="spy_category_store-fk_store" foreignTable="spy_store">
+        <foreign-key name="fos_category_store-fk_store" foreignTable="spy_store">
             <reference local="fk_store" foreign="id_store"/>
         </foreign-key>
 
