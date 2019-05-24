@@ -4,6 +4,7 @@ namespace FondOfSpryker\Zed\Category\Business;
 
 use FondOfSpryker\Zed\Category\Business\Model\Category;
 use FondOfSpryker\Zed\Category\Business\Model\CategoryNode\CategoryNode;
+use FondOfSpryker\Zed\Category\Business\Model\CategoryUrl\CategoryUrl;
 use Generated\Shared\Transfer\StoreTransfer;
 use Orm\Zed\Store\Persistence\Base\SpyStoreQuery;
 use Spryker\Shared\Kernel\Store;
@@ -19,8 +20,6 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
      */
     public function createCategory()
     {
-        $this->getStoreTransfer();
-
         return new Category(
             $this->createCategoryCategory(),
             $this->createCategoryNode(),
@@ -32,6 +31,19 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
             $this->getRelationUpdatePluginStack(),
             $this->getEventFacade(),
             $this->getStoreTransfer()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Model\CategoryUrl\CategoryUrlInterface
+     */
+    protected function createCategoryUrl()
+    {
+        return new CategoryUrl(
+            $this->getQueryContainer(),
+            $this->getUrlFacade(),
+            $this->createUrlPathGenerator(),
+            $this->getCategoryUrlPathPlugins()
         );
     }
 

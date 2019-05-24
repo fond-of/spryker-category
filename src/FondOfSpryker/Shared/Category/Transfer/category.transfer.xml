@@ -6,4 +6,8 @@
     <transfer name="Category">
         <property name="fkStore" type="int" />
     </transfer>
+
+    <transfer name="Node">
+        <property name="fkStore" type="int" />
+    </transfer>
 </transfers>
