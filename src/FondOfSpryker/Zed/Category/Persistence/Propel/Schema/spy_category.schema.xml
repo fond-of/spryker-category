@@ -5,25 +5,19 @@
           namespace="Orm\Zed\Category\Persistence"
           package="src.Orm.Zed.Category.Persistence">
 
-    <table name="fos_category_store" idMethod="native" allowPkInsert="true" identifierQuoting="true">
-        <column name="id_category_store" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+    <table name="spy_category" idMethod="native" phpName="SpyCategory">
+        <column name="fk_store" required="true" type="INTEGER" />
 
-        <column name="fk_category" required="true" type="INTEGER"/>
-        <column name="fk_store" required="true" type="INTEGER"/>
-
-        <unique name="fos_category_store-fk_category-fk_store">
-            <unique-column name="fk_category"/>
-            <unique-column name="fk_store"/>
-        </unique>
-
-        <foreign-key name="fos_category_store-fk_category" foreignTable="spy_category">
-            <reference local="fk_category" foreign="id_category"/>
+        <foreign-key name="spy_category-fk_store" foreignTable="spy_store">
+            <reference foreign="id_store" local="fk_store"/>
         </foreign-key>
-        <foreign-key name="fos_category_store-fk_store" foreignTable="spy_store">
-            <reference local="fk_store" foreign="id_store"/>
-        </foreign-key>
-
-        <id-method-parameter value="id_category_store_pk_seq"/>
     </table>
 
+    <table name="spy_category_node" idMethod="native" phpName="SpyCategoryNode">
+        <column name="fk_store" required="true" type="INTEGER" />
+
+        <foreign-key name="spy_category_node-fk_store" foreignTable="spy_store">
+            <reference foreign="id_store" local="fk_store"/>
+        </foreign-key>
+    </table>
 </database>
