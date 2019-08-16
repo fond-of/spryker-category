@@ -3,10 +3,8 @@
 namespace FondOfSpryker\Zed\Category\Business\Model\CategoryUrl;
 
 use Codeception\Test\Unit;
-use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Generated\Shared\Transfer\UrlTransfer;
-use Orm\Zed\Category\Persistence\Base\SpyCategoryNode;
 
 class CategoryUrlTest extends Unit
 {
@@ -20,6 +18,9 @@ class CategoryUrlTest extends Unit
      */
     protected $nodeTransferMock;
 
+    /**
+     * @return void
+     */
     protected function _before()
     {
         $this->urlTransferMock = $this->getMockBuilder(UrlTransfer::class)
@@ -29,15 +30,21 @@ class CategoryUrlTest extends Unit
 
         $this->nodeTransferMock = $this->getMockBuilder(NodeTransfer::class)
             ->disableOriginalConstructor()
-            ->setMethods(['getFkStore'])
+            ->setMethods(['getFkStore', 'fromArray'])
             ->getMock();
     }
 
+    /**
+     * @return void
+     */
     public function testSaveLocalizedUrlForNode(): void
     {
         $this->testGetUrlTransferForNode();
     }
 
+    /**
+     * @return void
+     */
     protected function testGetUrlTransferForNode(): void
     {
         $this->nodeTransferMock->fromArray(['fk_store' => 1], true);

@@ -2,9 +2,8 @@
 
 namespace FondOfSpryker\Zed\Category\Persistence;
 
-use Generated\Shared\Transfer\StoreTransfer;
-use Orm\Zed\Store\Persistence\Base\SpyStoreQuery as OrmSpyStoreQuery;
-use Spryker\Shared\Kernel\Store;
+use FondOfSpryker\Zed\Category\CategoryDependencyProvider;
+use FondOfSpryker\Zed\Category\Dependency\Facade\CategoryToStoreInterface;
 use Spryker\Zed\Category\Persistence\CategoryPersistenceFactory as SprykerCategoryPersistenceFactory;
 
 /**
@@ -14,18 +13,10 @@ use Spryker\Zed\Category\Persistence\CategoryPersistenceFactory as SprykerCatego
 class CategoryPersistenceFactory extends SprykerCategoryPersistenceFactory
 {
     /**
-     * @throws
-     *
-     * @return \Generated\Shared\Transfer\StoreTransfer
+     * @return \FondOfSpryker\Zed\Category\Dependency\Facade\CategoryToStoreInterface
      */
-    public function getStore(): StoreTransfer
+    public function getStoreFacade(): CategoryToStoreInterface
     {
-        $store = Store::getInstance();
-        $spyStoreQuery = OrmSpyStoreQuery::create();
-        $spyStore = $spyStoreQuery->filterByName($store->getStoreName())->findOne();
-        $storeTransfer = new StoreTransfer();
-        $storeTransfer->fromArray($spyStore->toArray(), true);
-
-        return $storeTransfer;
+        return $this->getProvidedDependency(CategoryDependencyProvider::FACADE_STORE);
     }
 }

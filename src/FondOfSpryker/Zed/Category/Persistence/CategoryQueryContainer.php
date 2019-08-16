@@ -35,7 +35,7 @@ class CategoryQueryContainer extends SprkyerCategoryQueryContainer
             )
             ->addAnd(
                 SpyCategoryNodeTableMap::COL_FK_STORE,
-                $this->getFactory()->getStore()->getIdStore(),
+                $this->getFactory()->getStoreFacade()->getCurrentStore()->getIdStore(),
                 Criteria::EQUAL
             )
             ->withColumn(
