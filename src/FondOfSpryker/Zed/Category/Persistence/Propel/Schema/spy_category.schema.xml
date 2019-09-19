@@ -8,9 +8,9 @@
     <table name="spy_category" idMethod="native" phpName="SpyCategory">
         <column name="fk_store" required="true" type="INTEGER" />
 
-        <foreign-key name="spy_category-fk_store" foreignTable="spy_store">
-            <reference foreign="id_store" local="fk_store"/>
-        </foreign-key>
+        <unique name="spy_category-category_key">
+            <unique-column name="fk_store"/>
+        </unique>
     </table>
 
     <table name="spy_category_node" idMethod="native" phpName="SpyCategoryNode">
