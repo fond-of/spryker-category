@@ -9,6 +9,8 @@ namespace FondOfSpryker\Zed\Category\Communication;
 
 use FondOfSpryker\Zed\Category\CategoryDependencyProvider;
 use FondOfSpryker\Zed\Category\Communication\Form\CategoryType;
+use FondOfSpryker\Zed\Category\Communication\Form\DataProvider\CategoryCreateDataProvider;
+use FondOfSpryker\Zed\Category\Communication\Form\DataProvider\CategoryEditDataProvider;
 use FondOfSpryker\Zed\Category\Dependency\Facade\CategoryToStoreBridge;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Spryker\Zed\Category\Communication\CategoryCommunicationFactory as SprykerCategoryCommunicationFactory;
@@ -61,6 +63,31 @@ class CategoryCommunicationFactory extends SprykerCategoryCommunicationFactory
             CategoryType::class,
             $categoryTransfer,
             $categoryCreateDataFormProvider->getOptions()
+        );
+    }
+
+    /**
+     * @return \FondOfSpryker\Zed\Category\Communication\Form\DataProvider\CategoryCreateDataProvider
+     */
+    protected function createCategoryCreateFormDataProvider()
+    {
+        return new CategoryCreateDataProvider(
+            $this->getQueryContainer(),
+            $this->getLocaleFacade(),
+            $this->getProvidedDependency(CategoryDependencyProvider::SERVICE_TWIG)
+        );
+    }
+
+    /**
+     * @return \FondOfSpryker\Zed\Category\Communication\Form\DataProvider\CategoryEditDataProvider
+     */
+    public function createCategoryEditFormDataProvider()
+    {
+        return new CategoryEditDataProvider(
+            $this->getQueryContainer(),
+            $this->getFacade(),
+            $this->getLocaleFacade(),
+            $this->getProvidedDependency(CategoryDependencyProvider::SERVICE_TWIG)
         );
     }
 }
