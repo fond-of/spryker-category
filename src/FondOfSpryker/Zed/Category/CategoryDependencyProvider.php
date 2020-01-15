@@ -9,6 +9,7 @@ use Spryker\Zed\Kernel\Container;
 class CategoryDependencyProvider extends SprykerCategoryDependencyProvider
 {
     public const FACADE_STORE = 'FACADE_STORE';
+    public const SERVICE_TWIG = 'SERVICE_TWIG';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -52,6 +53,21 @@ class CategoryDependencyProvider extends SprykerCategoryDependencyProvider
     {
         $container = parent::provideCommunicationLayerDependencies($container);
         $container = $this->addStoreFacade($container);
+        $container = $this->addTwigService($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Service\Kernel\Container $container
+     *
+     * @return \Spryker\Service\Kernel\Container
+     */
+    public function addTwigService(Container $container): Container
+    {
+        $container[static::SERVICE_TWIG] = function (Container $container) {
+            return $container->getLocator()->twig()->service();
+        };
 
         return $container;
     }
