@@ -10,6 +10,7 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 /**
  * @package FondOfSpryker\Zed\Category\Communication\Plugin\Category\Listener
  * @method \FondOfSpryker\Zed\Category\Business\CategoryFacade getFacade()
+ * @method \FondOfSpryker\Zed\Category\Communication\CategoryCommunicationFactory getFactory()
  */
 class CategoryNodeEventListener extends AbstractPlugin implements EventHandlerInterface
 {
