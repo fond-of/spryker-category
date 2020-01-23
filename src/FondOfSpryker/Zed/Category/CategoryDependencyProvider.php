@@ -18,14 +18,7 @@ class CategoryDependencyProvider extends SprykerCategoryDependencyProvider
      */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
-        $container = $this->addTouchFacade($container);
-        $container = $this->addLocaleFacade($container);
-        $container = $this->addUrlFacade($container);
-        $container = $this->addEventFacade($container);
-        $container = $this->addGraphPlugin($container);
-        $container = $this->addRelationDeletePluginStack($container);
-        $container = $this->addRelationUpdatePluginStack($container);
-        $container = $this->addCategoryUrlPathPlugins($container);
+        $container = parent::provideBusinessLayerDependencies($container);
         $container = $this->addStoreFacade($container);
 
         return $container;

@@ -13,6 +13,7 @@
 
         <unique name="spy_category-category_key">
             <unique-column name="fk_store"/>
+            <unique-column name="category_key"/>
         </unique>
     </table>
 
@@ -24,5 +25,3 @@
         </foreign-key>
     </table>
 </database>
-
-
