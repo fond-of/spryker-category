@@ -23,7 +23,7 @@
   "require": {
     "php": ">=7.1",
     "spryker/category": "~4.16.2",
-    "fond-of-spryker/twig": "~1.1.0"
+    "fond-of-spryker/twig": "~1.2.0"
   },
   "require-dev": {
     "spryker/code-sniffer": "^0.14.7",
