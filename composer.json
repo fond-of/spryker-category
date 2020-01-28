@@ -21,8 +21,8 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
-    "spryker/category": "~4.16.2",
+    "php": ">=7.2",
+    "spryker/category": "^4.16.4",
     "fond-of-spryker/twig": "~1.2.0"
   },
   "require-dev": {
