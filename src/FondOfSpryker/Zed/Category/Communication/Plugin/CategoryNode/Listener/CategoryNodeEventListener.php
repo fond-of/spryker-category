@@ -19,20 +19,22 @@ class CategoryNodeEventListener extends AbstractPlugin implements EventHandlerIn
      *  - Listeners needs to implement this interface to execute the codes for each
      *  event.CategoryNodeEventListener
      *
-     * @api
-     *
-     * @param \Spryker\Shared\Kernel\Transfer\TransferInterface $transfer
-     * @param string $eventName
+     * @param  \Spryker\Shared\Kernel\Transfer\TransferInterface  $transfer
+     * @param  string  $eventName
      *
      * @return void
+     * @api
+     *
      */
     public function handle(TransferInterface $transfer, $eventName): void
     {
-        $this->handleCreateCategoryNodeEvent($transfer->getCategoryNode());
+        if (method_exists($transfer, 'getCategoryNode')) {
+            $this->handleCreateCategoryNodeEvent($transfer->getCategoryNode());
+        }
     }
 
     /**
-     * @param \Generated\Shared\Transfer\NodeTransfer $nodeTransfer
+     * @param  \Generated\Shared\Transfer\NodeTransfer  $nodeTransfer
      *
      * @return void
      */

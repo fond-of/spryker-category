@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
- */
-
 namespace FondOfSpryker\Zed\Category\Communication;
 
 use FondOfSpryker\Zed\Category\CategoryDependencyProvider;
@@ -62,7 +57,7 @@ class CategoryCommunicationFactory extends SprykerCategoryCommunicationFactory
         return $formFactory->create(
             CategoryType::class,
             $categoryTransfer,
-            $categoryCreateDataFormProvider->getOptions()
+            $categoryCreateDataFormProvider->getOptions($categoryTransfer->getIdCategory())
         );
     }
 

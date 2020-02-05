@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
- */
-
 namespace FondOfSpryker\Zed\Category\Communication\Form\DataProvider;
 
 use FondOfSpryker\Service\Twig\TwigService;
@@ -21,8 +16,6 @@ class CategoryEditDataProvider extends SprykerCategoryEditDataProvider
     protected $twigService;
 
     /**
-     * CategoryEditDataProvider constructor.
-     *
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $queryContainer
      * @param \Spryker\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
      * @param \Spryker\Zed\Category\Dependency\Facade\CategoryToLocaleInterface $localeFacade
@@ -57,6 +50,7 @@ class CategoryEditDataProvider extends SprykerCategoryEditDataProvider
                 $availableTemplates[$template->getIdCategoryTemplate()] = $template->getName();
             }
         }
+
         return $availableTemplates;
     }
 }

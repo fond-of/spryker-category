@@ -52,9 +52,9 @@ class CategoryDependencyProvider extends SprykerCategoryDependencyProvider
     }
 
     /**
-     * @param \Spryker\Service\Kernel\Container $container
-     *
-     * @return \Spryker\Service\Kernel\Container
+     * @param  \Spryker\Zed\Kernel\Container  $container
+     * 
+     * @return \Spryker\Zed\Kernel\Container
      */
     public function addTwigService(Container $container): Container
     {

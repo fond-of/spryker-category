@@ -28,7 +28,9 @@ class CategoryEventListener extends AbstractPlugin implements EventHandlerInterf
      */
     public function handle(TransferInterface $transfer, $eventName): void
     {
-        $this->handleCreateCategoryEvent($transfer);
+        if (get_class($transfer) === CategoryTransfer::class){
+            $this->handleCreateCategoryEvent($transfer);
+        }
     }
 
     /**

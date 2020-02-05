@@ -26,8 +26,6 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     }
 
     /**
-     * @throws
-     *
      * @return \FondOfSpryker\Zed\Category\Dependency\Facade\CategoryToStoreInterface
      */
     public function getStoreFacade(): CategoryToStoreInterface
