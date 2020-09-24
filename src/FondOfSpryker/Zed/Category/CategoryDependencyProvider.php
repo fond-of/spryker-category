@@ -98,7 +98,7 @@ class CategoryDependencyProvider extends SprykerCategoryDependencyProvider
     /**
      * @return \Symfony\Component\Form\FormTypeInterface[]
      */
-    protected function getCategoryLocalizedAttributeFormPlugins()
+    protected function getCategoryLocalizedAttributeFormPlugins(): array
     {
         return [];
     }

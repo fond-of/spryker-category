@@ -97,7 +97,7 @@ class CategoryCommunicationFactory extends SprykerCategoryCommunicationFactory
     /**
      * @return \Spryker\Zed\Category\Dependency\Plugin\CategoryFormPluginInterface[]
      */
-    public function getCategoryLocalizedAttributeFormPlugins()
+    public function getCategoryLocalizedAttributeFormPlugins(): array
     {
         return $this->getProvidedDependency(CategoryDependencyProvider::CATEGORY_LOCALIZED_ATTRIBUTE_FORM_PLUGINS);
     }
