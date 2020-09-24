@@ -6,6 +6,7 @@ use Generated\Shared\Transfer\CategoryTransfer;
 use Spryker\Zed\Category\Communication\Form\CategoryType as SprykerCategoryType;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\PropelOrm\Business\Runtime\ActiveQuery\Criteria;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Callback;
@@ -52,6 +53,20 @@ class CategoryType extends SprykerCategoryType
                     },
                 ]),
             ],
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     *
+     * @return \Spryker\Zed\Category\Communication\Form\CategoryType
+     */
+    protected function addLocalizedAttributesForm(FormBuilderInterface $builder)
+    {
+        $builder->add(static::FIELD_LOCALIZED_ATTRIBUTES, CollectionType::class, [
+            'entry_type' => CategoryLocalizedAttributeType::class,
         ]);
 
         return $this;

@@ -10,6 +10,7 @@ class CategoryDependencyProvider extends SprykerCategoryDependencyProvider
 {
     public const FACADE_STORE = 'FACADE_STORE';
     public const SERVICE_TWIG = 'SERVICE_TWIG';
+    public const CATEGORY_LOCALIZED_ATTRIBUTE_FORM_PLUGINS = 'CATEGORY_LOCALIZED_ATTRIBUTE_FORM_PLUGINS';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -47,13 +48,14 @@ class CategoryDependencyProvider extends SprykerCategoryDependencyProvider
         $container = parent::provideCommunicationLayerDependencies($container);
         $container = $this->addStoreFacade($container);
         $container = $this->addTwigService($container);
+        $container = $this->addCategoryLocalizedAttributeFormPlugins($container);
 
         return $container;
     }
 
     /**
-     * @param  \Spryker\Zed\Kernel\Container  $container
-     * 
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
      * @return \Spryker\Zed\Kernel\Container
      */
     public function addTwigService(Container $container): Container
@@ -77,5 +79,27 @@ class CategoryDependencyProvider extends SprykerCategoryDependencyProvider
         };
 
         return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addCategoryLocalizedAttributeFormPlugins(Container $container): Container
+    {
+        $container[static::CATEGORY_LOCALIZED_ATTRIBUTE_FORM_PLUGINS] = function (Container $container) {
+            return $this->getCategoryLocalizedAttributeFormPlugins();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @return \Symfony\Component\Form\FormTypeInterface[]
+     */
+    protected function getCategoryLocalizedAttributeFormPlugins()
+    {
+        return [];
     }
 }

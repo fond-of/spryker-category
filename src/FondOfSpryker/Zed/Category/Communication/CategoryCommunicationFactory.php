@@ -85,4 +85,20 @@ class CategoryCommunicationFactory extends SprykerCategoryCommunicationFactory
             $this->getProvidedDependency(CategoryDependencyProvider::SERVICE_TWIG)
         );
     }
+
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Plugin\CategoryFormPluginInterface[]
+     */
+    public function getCategoryFormPlugins()
+    {
+        return $this->getProvidedDependency(CategoryDependencyProvider::PLUGIN_CATEGORY_FORM_PLUGINS);
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Plugin\CategoryFormPluginInterface[]
+     */
+    public function getCategoryLocalizedAttributeFormPlugins()
+    {
+        return $this->getProvidedDependency(CategoryDependencyProvider::CATEGORY_LOCALIZED_ATTRIBUTE_FORM_PLUGINS);
+    }
 }
